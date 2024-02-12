@@ -14,16 +14,19 @@ function HomePage(props)
   let arrWeaknesses = [];
   let arrShortList = [];
   
-  bigList = fetchRoutines();
+  if (bigList.pokemon === undefined) 
+     {bigList = fetchRoutines()};
 
   //
-  if ( bigList != null) 
+  if (bigList.pokemon === undefined) 
+     {//NOOP
+    }
+  else
      {
      const newPokemon = siftPokemon(bigList.pokemon);
-//     console.log("newPokemon", newPokemon);
+//     console.log(bigList.pokemon);
+     [arrType, arrWeaknesses] = setPickLists(bigList.pokemon);
      arrShortList = filterArray(newPokemon, searchName, searchType, searchWeaknesses);
-//     console.log("Short", arrShortList);
-     [arrType, arrWeaknesses] = setPickLists(bigList);
      }
 
   return (
