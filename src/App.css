@@ -10,12 +10,13 @@
 .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
-  text-align: canter;
+  text-align: center;
 }
 
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
+  color: black;
 }
 
 .styled-table tbody tr {
@@ -60,15 +61,24 @@ h1:hover {--_p: 100%}
 .tdLeftie {
   text-align: left;
 }
+
+label {
+    color: black;
+    background-color: lightcyan;
+  }
+
+input {  
+  color: black;
+  background-color: lightcyan;
+}
+select {  
+  color: black;
+  background-color: lightcyan;
+}
+
 /*
 ----------CSS FOR POKEMON ABOVE----------------
 */
-h1 {
-  font-family: system-ui, sans-serif;
-  font-size: 5rem;
-  cursor: pointer;
-}
-
 
 #root {
   max-width: 1280px;

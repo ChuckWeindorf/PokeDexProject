@@ -4093,7 +4093,7 @@ let realPokemon = {};
 
 function fetchRoutines() {
 
-    let [listPokemon, setList] = useState([]);
+    let [listPokemonNotUsed, setList] = useState([]);
       
         useEffect(() => { getPokemon([])}, []);
       
@@ -4105,11 +4105,10 @@ function fetchRoutines() {
             .then((data) => {
 //              console.log("Service", data);
               setList(data);
+              realPokemon = data;
             })
             .catch(console.error);
         }
-
-        realPokemon = listPokemon;
         
        //realPokemon = testBigData;
   return realPokemon;

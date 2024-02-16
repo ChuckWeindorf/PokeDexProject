@@ -1,34 +1,39 @@
 import {useState} from "react";
 import {fetchRoutines, getStoredPokemonData} from '../components/fetchRoutines';
-import oldFashionedTable from '../components/oldFashionedTable';
+import OldFashionedTable from '../components/oldFashionedTable';
 import { siftPokemon, setPickLists, filterArray} from '../components/objectBoiler';
 
 
 function HomePage(props)
  {
+ // console.log("Step 1");
   let [searchType, setSearchType] = useState("");
   let [searchWeaknesses, setSearchWeaknesses] = useState("");
   let [searchName, setSearchName] = useState("");
+  //console.log("Step 2");
   let bigList = {};
   let arrType = [];
   let arrWeaknesses = [];
   let arrShortList = [];
+ // console.log("Step 3");
   
   if (bigList.pokemon === undefined) 
      {bigList = fetchRoutines()};
-
+//  console.log("Step 4");
   //
   if (bigList.pokemon === undefined) 
      {//NOOP
+//      console.log("Step 5a");
     }
   else
      {
+//      console.log("Step 5b");
      const newPokemon = siftPokemon(bigList.pokemon);
 //     console.log(bigList.pokemon);
      [arrType, arrWeaknesses] = setPickLists(bigList.pokemon);
      arrShortList = filterArray(newPokemon, searchName, searchType, searchWeaknesses);
      }
-
+//     console.log("Step 6");
   return (
     <>
       <div>
@@ -74,7 +79,7 @@ function HomePage(props)
 
         </div>
 
-    {oldFashionedTable(arrShortList)}           
+    <OldFashionedTable arrToDisplay={arrShortList}/>           
     </>
   )
 
